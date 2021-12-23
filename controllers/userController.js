@@ -10,7 +10,7 @@ exports.userController = {
            
         },
         getUser(req,res){
-            userModel.findOne({firstName:req.params.firstName})
+            userModel.findfOne({_id:req.params.id})
                 .then(docs => {res.json(docs) })
                 .catch(err => console.log(`err getting the data from db: ${err}`))
     
