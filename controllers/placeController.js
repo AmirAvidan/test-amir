@@ -5,7 +5,6 @@ exports.placeController = {
     
     getAllplacesNearby(req, res) {
 
-        console.log(req.params.place);
 
         let getPlaceByAutocomplete = {
             method: 'get',
@@ -22,7 +21,6 @@ exports.placeController = {
                 };
                 axios(extractPositionByUsingPlaceId)
                 .then(function (response) {
-                    //console.log(response.data["result"])
                     let lat = response.data["result"]["geometry"]["viewport"]["northeast"]["lat"];
                     let lng = response.data["result"]["geometry"]["viewport"]["northeast"]["lng"];
                     let getNearyByPlaces = {
@@ -33,7 +31,7 @@ exports.placeController = {
                     axios(getNearyByPlaces)
                     .then(function (response) {
                         let dataFromJson = response.data["results"];
-                        res.send(dataFromJson)
+                        res.json(dataFromJson)
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -50,17 +48,4 @@ exports.placeController = {
                 res.status(400).json({msg:"Error with the name of the place."})
             });
     },
-    getplace(req, res) {
-
-    },
-    addplace(req, res) {
-
-    },
-    updateplace(req, res) {
-
-    },
-    deleteplace(req, res) {
-
-    }
-
 }

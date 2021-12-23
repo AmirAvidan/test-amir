@@ -17,7 +17,7 @@ const invitationSchema  = new Schema({
         type:Boolean
     },
     time: {
-        type:Number,
+        type:Date,
         required:true
     },
     seatingPreference: {

@@ -7,11 +7,6 @@ exports.eventController = {
         .then(docs => {res.json(docs) })
         .catch(err => console.log(`err getting the data from db: ${err}`));
     },
-    getevent(req,res){
-        eventModel.findOne({id})
-            .then(docs => {res.json(docs) })
-            .catch(err => console.log(`err getting the data from db: ${err}`))
-    },
     async addevent(req,res){
 
         const newEvent = new eventModel(req.body)
@@ -30,17 +25,5 @@ exports.eventController = {
             }
 
     },
-    updateevent(req,res){
-        eventModel.updateOne({id}, {firstName}, {lastName}, {phone}, {email})
-            .then(docs => {res.json(docs) })
-            .catch(err => console.log(`err updating the data from db: ${err}`))
-
-    },
-    deleteevent(req,res){
-        eventModel.deleteOne({id})
-            .then(docs => {res.json(docs) })
-            .catch(err => console.log(`err deleting the data from db: ${err}`))
-
-    }
 
 }
